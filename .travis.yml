@@ -1,0 +1,19 @@
+language: objective-c
+osx_image: xcode9
+
+script: 
+  - ./build.sh
+  - ./test.sh
+  - mkdir -p Carthage/Build/iOS
+  - cp -r build/dlib.framework Carthage/Build/iOS/dlib.framework
+  - zip -r Carthage.framework.zip Carthage
+
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: D+IbPVHI1QFP5XebkaXf6Qiioce6VZQ8dmerdnUf59WL0A2gV5kI1O6Mps3JAx7Few0FbwhACtoU+bDEzgN1Pj7poZODv85bie8toCUC0u4iF1mft/NAxJrIBpdNbBfDpQDBiP6zNEtKuS3wTyyoFT+gyJlDWictWI1mYojkc9Bf8UKPGpgJMi7ZDUSWjjvvhIwdAzKhfflCTPaSm276JugA99y5pxoKP2UhrsPRX74R6t1D6O4Y+BGp7fKlGIxa7alViw3HqdTQIJsqbyrIisLpjhFb5xfR1dyAngruJ7IoGAsqT0Ac5Hyu1ogHX8PBQjVt4Tuj+sYSp9f/mkzUWgjYoTTeGhITRSjmU3WkG/EwcpM5kJYN3Kp0W3nPS/N+LE6h6B4x/TkrQqXvP6OJw2AQttK92k/SPrBRWWw7BGWR865VdABDY00cxgwtBjTf3OHggo4PHvtDPcjUQmJx1BYR4bckXBLoqSfY1ss6QX+dnGOxABaAR1wdYVRCsCXO3uO644FSzmt/yqrgRt8Y0Mz3uLfuZw3Lo8kUtSNO5MS+D5qwBI55fnipCALp4FIYXjpEobn0HrrzJmkQAtNS6bjpFC9VjulQUKUPg+2s7YT8oaWQ/Bm+ZbV67pEN3Wc0SFiTVu7hGd8a8H7+JadGse6Ajx6nqj9qnudoH+UP1L8=
+  file: Carthage.framework.zip
+  on:
+    tags: true
+    repo: carlossless/dlib-ios

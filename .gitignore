@@ -1,0 +1,6 @@
+.DS_Store
+
+build/
+dlib/
+ios-cmake/
+
