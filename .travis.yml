@@ -1,18 +1,18 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode10.2
 
-script: 
-  - ./build.sh
-  - ./test.sh
-  - mkdir -p Carthage/Build/iOS
-  - cp -r build/dlib.framework Carthage/Build/iOS/dlib.framework
-  - zip -r Carthage.framework.zip Carthage
+script:
+- ./build.sh
+- ./test.sh
+- mkdir -p Carthage/Build/iOS
+- cp -r build/dlib.framework Carthage/Build/iOS/dlib.framework
+- zip -r Carthage.framework.zip Carthage
 
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: D+IbPVHI1QFP5XebkaXf6Qiioce6VZQ8dmerdnUf59WL0A2gV5kI1O6Mps3JAx7Few0FbwhACtoU+bDEzgN1Pj7poZODv85bie8toCUC0u4iF1mft/NAxJrIBpdNbBfDpQDBiP6zNEtKuS3wTyyoFT+gyJlDWictWI1mYojkc9Bf8UKPGpgJMi7ZDUSWjjvvhIwdAzKhfflCTPaSm276JugA99y5pxoKP2UhrsPRX74R6t1D6O4Y+BGp7fKlGIxa7alViw3HqdTQIJsqbyrIisLpjhFb5xfR1dyAngruJ7IoGAsqT0Ac5Hyu1ogHX8PBQjVt4Tuj+sYSp9f/mkzUWgjYoTTeGhITRSjmU3WkG/EwcpM5kJYN3Kp0W3nPS/N+LE6h6B4x/TkrQqXvP6OJw2AQttK92k/SPrBRWWw7BGWR865VdABDY00cxgwtBjTf3OHggo4PHvtDPcjUQmJx1BYR4bckXBLoqSfY1ss6QX+dnGOxABaAR1wdYVRCsCXO3uO644FSzmt/yqrgRt8Y0Mz3uLfuZw3Lo8kUtSNO5MS+D5qwBI55fnipCALp4FIYXjpEobn0HrrzJmkQAtNS6bjpFC9VjulQUKUPg+2s7YT8oaWQ/Bm+ZbV67pEN3Wc0SFiTVu7hGd8a8H7+JadGse6Ajx6nqj9qnudoH+UP1L8=
+    secure: s4ukYcbYBm2gjtMbwJbZKm3GcfaU7Hdb3r9KOJvcdRB18IMDj9H8DmVy+v7SrhZwBVo88whLA12w0nTJXgJ5iAtd2/MLaVtujYW4wo2T0aay1Gqc4WAY7b5hnH8aY80u11b8kNd5bi8sgLFVl+hFdh+ockkGNcge4l3M0bchSAW5vvkhC7+NaMHH4lL5aSKfgCfAXiNUtkIWOdJxd8XCnk5BZF7z5kJAv6fhN5dC82gt8/ZzElNEIesMIQQl8pPk7qjg797LIf8zb2X1PI6Gql31GvVtSG9FwHjjkDwoV52ycTwxSyF4mztwE14+BDav0xkN0bQ4uGapXV+feWcUjVhIN5w4UdGM+k1mW5wMsDzjMJxUns215H7mli9dhdNYNIOHfedzrHr+6x+u7g43al3xqlHJRU6zjrNkSw+Sqy/UsLZmBNWFQABIFe9RU3e+PhOrqSU7k+ArJAbvtHJpn5nUePu7PIgx62j12K/MhnIOIwSpcK/kXmQAfbLUn+F1aiKYFliGzM/HGaVogExX0GaYrWFXXrlc0On3E6S4N2spVF9deF0yQUECQGMhMtn5qKbLGdcD+CiuFnfpdiWYRv4DRwniQQrpDUdWX/cAU8MM9dDj6jfjJqG6IAwEfWaI11fd8eweuH8d1eZQA5pUsA9u0MGwinQJ9btsW7CHM8E=
   file: Carthage.framework.zip
   on:
     tags: true
